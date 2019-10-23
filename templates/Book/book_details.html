@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% extends 'Book/base.html' %}
+{% load staticfiles %}
+
+{% block logout %} <a class="nav-link" href="/accounts/logout"><button type="button" class="btn btn-outline-success">Logout</button></a> {% endblock %}
+{% block home %} <a class="nav-link" href="/Book/after_login_home"><button type="button" class="btn btn-outline-success">Home <span class="sr-only">(current)</span></button></a> {% endblock %}
+
+{% block dropdown %}
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-left:red solid 2px;border-right:red solid 2px;border-radius:50%;">
+    <b>{{login_user|upper}}</b>
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+  <a class="dropdown-item" href="/Book/uploaded_book">Books</a>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="/accounts/logout">Logout</a>
+</div>
+
+{% endblock %}
+
+{% block head %}
+<style>
+.left{
+  width:30%;
+  float: left;
+}
+.right{
+  width:50%;
+  float:right;
+  margin-left:20px;
+}
+h5,span{
+  color:white;
+}
+
+</style>
+
+{% endblock %}
+
+
+{% block body %}
+<hr><hr><hr><br>
+
+<div class="container my-3">
+
+  <div class="left mx-4">
+
+    <div class="card my-5" style="width: 18rem;border-radius:50%;">
+      {% if book.semester == 1 %}
+      <img src="{% static "image/sem1.png" %}" class="card-img-top" alt="...">
+      {% elif book.semester == 2 %}
+      <img src="{% static "image/sem2.png" %}" class="card-img-top" alt="...">
+      {% elif book.semester == 3 %}
+      <img src="{% static "image/sem3.png" %}" class="card-img-top" alt="..." style="border-radius:50%;">
+      {% elif book.semester == 4 %}
+      <img src="{% static "image/sem4.png" %}" class="card-img-top" alt="...">
+      {% elif book.semester == 5 %}
+      <img src="{% static "image/sem5.png" %}" class="card-img-top" alt="...">
+      {% elif book.semester == 6 %}
+      <img src="{% static "image/sem6.png" %}" class="card-img-top" alt="...">
+      {% elif book.semester == 7 %}
+      <img src="{% static "image/sem7.png" %}" class="card-img-top" alt="...">
+      {% elif book.semester == 8 %}
+      <img src="{% static "image/sem8.png" %}" class="card-img-top" alt="...">
+      {% endif %}
+      <div class="card-body">
+          <h5 class="card-title">{{book.bname|upper}}</h5>
+          <p class="card-text">AUTHOR    : <span>{{book.bauthor|upper}}</span></p>
+          <p class="card-text">SEMESTER  : <span>{{book.semester}}</span></p>
+          <p class="card-text">BRANCH    : <span>{{book.branch}}</span></p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="right">
+    <h4>Contact Details Of Book Holder</h4><hr><br>
+    <button type="button" class="btn btn-outline-success btn-lg btn-block">{{book.buser.first_name|upper}}</button>
+    <button type="button" class="btn btn-outline-success btn-lg btn-block">{{user.mobile_no|upper}}</button>
+    <button type="button" class="btn btn-outline-success btn-lg btn-block">{{user.address1|upper}}</button>
+    <button type="button" class="btn btn-outline-success btn-lg btn-block">{{user.address2|upper}}</button>
+
+    <br><h5><b>Contact <span style="color:red">{{book.buser.first_name|upper}}</span> for more details...</b></h5>
+    <h5><b>And if <span style="color:red">{{book.buser.first_name|upper}}</span> agree to give, then click on below button</b></h5><br>
+
+    <a href="/Book/book_taken/{{book.id}}"><button type="submit" class="btn btn-warning btn-lg btn-block"><span style="color:red">{{book.buser.first_name|upper}}</span> Agree To Give Book???</button></a>
+
+  </div>
+</div>
+
+{% endblock %}

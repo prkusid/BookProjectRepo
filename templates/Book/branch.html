@@ -1,0 +1,74 @@
+{% extends "Book/base.html" %}
+{% load staticfiles %}
+
+
+{% block head %}
+
+  <style>
+    img{
+      height:300px;
+      width:300px;
+      padding:60px;
+    }
+
+  </style>
+
+{% endblock %}
+
+{% block login %} <a class="nav-link" href="/accounts/login"><button type="button" class="btn btn-outline-success">Login</button></a> {% endblock %}
+
+{% block sign_up %} <a class="nav-link" href="/Book/sign_up"><button type="button" class="btn btn-outline-success">Sign Up</button></a> {% endblock %}
+
+{% block home %} <a class="nav-link" href="/Book"><button type="button" class="btn btn-outline-success">Home <span class="sr-only">(current)</span></button></a> {% endblock %}
+
+
+{% block body %}
+<br>
+
+  <div class="jumbotron mx-5" style="background-color:rgba(0,0,0,0);">
+
+  <div class="row my-4">
+
+    <a href="/Book/book_list/{{sem}}/cse">
+      <div class="card" style="width: 26rem;border-radius:50%;">
+        <img src="{% static 'image/cse.png' %}" class="card-img-top" alt="...">
+      </div>
+    </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    <a href="/Book/book_list/{{sem}}/ise">
+      <div class="card" style="width: 26rem;border-radius:50%;">
+        <img src="{% static 'image/ise.png' %}" class="card-img-top" alt="...">
+      </div>
+    </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    <a href="/Book/book_list/{{sem}}/eee">
+      <div class="card" style="width: 26rem;border-radius:50%;">
+        <img src="{% static 'image/eee.jpg' %}" class="card-img-top" alt="...">
+      </div>
+    </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  </div>
+
+  <div class="row my-4">
+    <a href="/Book/book_list/{{sem}}/ece">
+      <div class="card" style="width: 26rem;border-radius:50%;">
+        <img src="{% static 'image/ece.jfif' %}" class="card-img-top" alt="...">
+      </div>
+    </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    <a href="/Book/book_list/{{sem}}/me">
+      <div class="card" style="width: 26rem;border-radius:50%;">
+        <img src="{% static 'image/me.jpg' %}" class="card-img-top" alt="...">
+      </div>
+    </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    <a href="/Book/book_list/{{sem}}/ce">
+      <div class="card" style="width: 26rem;border-radius:50%;">
+        <img src="{% static 'image/ce.jpg' %}" class="card-img-top" alt="...">
+      </div>
+    </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+
+  </div>
+</div>
+
+{% endblock %}

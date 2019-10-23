@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% extends 'Book/base.html' %}
+{% load staticfiles %}
+
+{% block login %} <a class="nav-link" href="/accounts/login"><button type="button" class="btn btn-outline-success">Login</button></a> {% endblock %}
+
+{% block sign_up %} <a class="nav-link" href="/Book/sign_up"><button type="button" class="btn btn-outline-success">Sign Up</button></a> {% endblock %}
+
+{% block home %} <a class="nav-link" href="/Book"><button type="button" class="btn btn-outline-success">Home <span class="sr-only">(current)</span></button></a> {% endblock %}
+
+
+{% block body %}
+
+<div class="jumbotron" style="background-color:rgba(0,0,0,0);">
+
+  <div class="row my-4">
+    <a href="book_list/1">
+      <div class="col-sm mx-5">
+        <div class="card" style="width: 18rem; border-radius:50%;">
+          <img src="{% static 'image/sem1.png' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <!-- <button class="btn btn-outline-secondary"><h4 style="color:black;">SEMESTER I</h3></button> -->
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="book_list/2">
+        <div class="col-sm">
+          <div class="card" style="width: 18rem; border-radius:50%;">
+            <img src="{% static 'image/sem2.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <!-- <button class="btn btn-outline-secondary"><h3 style="color:black;">SEMESTER II</h3></button> -->
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="branch/3">
+        <div class="col-sm">
+          <div class="card" style="width: 18rem;border-radius:50%">
+            <img src="{% static 'image/sem3.png' %}" class="card-img-top" alt="..." style="border-radius:50%;">
+            <div class="card-body">
+              <!-- <button class="btn btn-outline-secondary"><h3 style="color:black;">SEMESTER III</h3></button> -->
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="branch/4">
+        <div class="col-sm">
+          <div class="card" style="width: 18rem;border-radius:50%;">
+            <img src="{% static 'image/sem4.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <!-- <button class="btn btn-outline-secondary"><h3 style="color:black;">SEMESTER IV</h3></button> -->
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="row my-4">
+
+      <a href="branch/5">
+        <div class="col-sm mx-5">
+          <div class="card" style="width: 18rem;border-radius:50%;">
+            <img src="{% static 'image/sem5.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <!-- <button class="btn btn-outline-secondary"><h3 style="color:black;">SEMESTER V</h3></button> -->
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="branch/6">
+        <div class="col-sm">
+          <div class="card" style="width: 18rem;border-radius:50%;">
+            <img src="{% static 'image/sem6.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <!-- <button class="btn btn-outline-secondary"><h3 style="color:black;">SEMESTER VI</h3></button> -->
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="branch/7">
+        <div class="col-sm">
+          <div class="card" style="width: 18rem;border-radius:50%;">
+            <img src="{% static 'image/sem7.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <!-- <button class="btn btn-outline-secondary"><h3 style="color:black;">SEMESTER VII</h3></button> -->
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="branch/8">
+        <div class="col-sm">
+          <div class="card" style="width: 18rem;border-radius:50%;">
+            <img src="{% static 'image/sem8.png' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <!-- <button class="btn btn-outline-secondary"><h3 style="color:black;">SEMESTER VIII</h3></button> -->
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+{% endblock %}

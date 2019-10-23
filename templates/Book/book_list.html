@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% extends "Book/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+  <style>
+    img{
+      height:200px;
+  }
+  h5,span{
+    color:white;
+  }
+
+  </style>
+
+{% endblock %}
+
+{% block login %} <a class="nav-link" href="/accounts/login"><button type="button" class="btn btn-outline-success">Login</button></a> {% endblock %}
+
+{% block sign_up %} <a class="nav-link" href="/Book/sign_up"><button type="button" class="btn btn-outline-success">Sign Up</button></a> {% endblock %}
+
+{% block home %} <a class="nav-link" href="/Book"><button type="button" class="btn btn-outline-success">Home <span class="sr-only">(current)</span></button></a> {% endblock %}
+
+{% block search %}
+
+<form class="form-inline my-2 my-lg-0" method="post">
+  <input class="form-control mr-sm-2" type="search" placeholder="book_name,semester" name="search"  aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  {% csrf_token %}
+</form>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="row my-2 jumbotron" style="background-color:rgba(235, 254, 255,0);">
+  {% if books %}
+  {% for book in books %}
+
+  <div class="col-sm mx-2 my-3">
+    <div class="card" style="width: 18rem;border-radius:50%">
+      {% if book.semester == 1 %}
+      <img src="{% static "image/sem1.png" %}" class="card-img-top" alt="...">
+      {% elif book.semester == 2 %}
+      <img src="{% static "image/sem2.png" %}" class="card-img-top" alt="...">
+      {% elif book.semester == 3 %}
+      <img src="{% static "image/sem3.png" %}" class="card-img-top" alt="..." style="border-radius:50%;">
+      {% elif book.semester == 4 %}
+      <img src="{% static "image/sem4.png" %}" class="card-img-top" alt="...">
+      {% elif book.semester == 5 %}
+      <img src="{% static "image/sem5.png" %}" class="card-img-top" alt="...">
+      {% elif book.semester == 6 %}
+      <img src="{% static "image/sem6.png" %}" class="card-img-top" alt="...">
+      {% elif book.semester == 7 %}
+      <img src="{% static "image/sem7.png" %}" class="card-img-top" alt="...">
+      {% elif book.semester == 8 %}
+      <img src="{% static "image/sem8.png" %}" class="card-img-top" alt="...">
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{book.bname|upper}}</h5>
+        <p class="card-text">AUTHOR    : <span>{{book.bauthor|upper}}</span></p>
+        <p class="card-text">SEMESTER  : <span>{{book.semester}}</span></p>
+        <p class="card-text">BRANCH  : <span>{{book.branch}}</span></p>
+        <a href="/Book/borrow/{{book.id}}"><button type="button" class="btn btn-warning">Borrow</button></a>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+  {% else %}
+  <h1 class="container jumbotron">No Books Are Available...</h1>
+  {% endif %}
+
+</div><br><br>
+
+{% endblock %}

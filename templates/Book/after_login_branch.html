@@ -1,0 +1,83 @@
+{% extends "Book/base.html" %}
+{% load staticfiles %}
+
+{% block logout %} <a class="nav-link" href="/accounts/logout"><button type="button" class="btn btn-outline-success">Logout</button></a> {% endblock %}
+
+{% block home %} <a class="nav-link" href="/Book/after_login_home"><button type="button" class="btn btn-outline-success">Home <span class="sr-only">(current)</span></button></a> {% endblock %}
+
+{% block dropdown %}
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-left:red solid 2px;border-right:red solid 2px;border-radius:50%;">
+    <b>{{login_user|upper}}</b>
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+  <a class="dropdown-item" href="/Book/uploaded_book">Books</a>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="/accounts/logout">Logout</a>
+</div>
+
+{% endblock %}
+
+{% block head %}
+
+  <style>
+    img{
+      height:300px;
+      width:300px;
+      padding:60px;
+    }
+
+  </style>
+
+{% endblock %}
+
+{% block body %}
+<br>
+
+  <div class="jumbotron mx-5" style="background-color:rgba(0,0,0,0);">
+
+  <div class="row my-4">
+
+    <a href="/Book/after_login_book_list/{{sem}}/cse">
+      <div class="card" style="width: 26rem;border-radius:50%;">
+        <img src="{% static 'image/cse.png' %}" class="card-img-top" alt="...">
+      </div>
+    </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    <a href="/Book/after_login_book_list/{{sem}}/ise">
+      <div class="card" style="width: 26rem;border-radius:50%;">
+        <img src="{% static 'image/ise.png' %}" class="card-img-top" alt="...">
+      </div>
+    </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    <a href="/Book/after_login_book_list/{{sem}}/eee">
+      <div class="card" style="width: 26rem;border-radius:50%;">
+        <img src="{% static 'image/eee.jpg' %}" class="card-img-top" alt="...">
+      </div>
+    </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  </div>
+
+  <div class="row my-4">
+    <a href="/Book/after_login_book_list/{{sem}}/ece">
+      <div class="card" style="width: 26rem;border-radius:50%;">
+        <img src="{% static 'image/ece.jfif' %}" class="card-img-top" alt="...">
+      </div>
+    </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    <a href="/Book/after_login_book_list/{{sem}}/me">
+      <div class="card" style="width: 26rem;border-radius:50%;">
+        <img src="{% static 'image/me.jpg' %}" class="card-img-top" alt="...">
+      </div>
+    </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    <a href="/Book/after_login_book_list/{{sem}}/ce">
+      <div class="card" style="width: 26rem;border-radius:50%;">
+        <img src="{% static 'image/ce.jpg' %}" class="card-img-top" alt="...">
+      </div>
+    </a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+
+  </div>
+</div>
+
+{% endblock %}

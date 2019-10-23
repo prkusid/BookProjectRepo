@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends "Book/base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block home %} <a class="nav-link" href="/Book"><button type="button" class="btn btn-outline-success">Home <span class="sr-only">(current)</span></button></a> {% endblock %}
+
+<!-- head block started -->
+{% block head %}
+
+  <style>
+    input{
+      width: 70%;
+      height: 50px
+    }
+
+  </style>
+
+{% endblock %}
+
+<!-- sign_up block sarted -->
+{% block sign_up %} <a class="nav-link" href="/Book/sign_up"><button type="button" class="btn btn-outline-success">Sign Up</button></a> {% endblock %}
+
+<!-- body block started -->
+{% block body %}
+
+<br><br><br><br><br>
+<div class="container my-5" style="width:500px; border-left:solid 7px red;border-right:solid 7px red;border-radius:10%;"><br>
+      <form method="post">
+        {{form|crispy}}
+        <center><button type="submit" class="btn btn-outline-success">Login</button></center>
+        {% csrf_token %}
+      </form>
+
+</div>
+
+
+
+</div>
+
+{% endblock %}

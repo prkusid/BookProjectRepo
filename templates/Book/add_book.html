@@ -1,0 +1,69 @@
+{% extends "Book/base.html" %}
+
+{% block home %} <a class="nav-link" href="/Book/after_login_home"><button type="button" class="btn btn-outline-success">Home <span class="sr-only">(current)</span></button></a> {% endblock %}
+{% block logout %} <a class="nav-link" href="/accounts/logout"><button type="button" class="btn btn-outline-success">Logout</button></a> {% endblock %}
+
+{% block dropdown %}
+
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-left:red solid 2px;border-right:red solid 2px;border-radius:50%;">
+    <b>{{login_user|upper}}</b>
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+  <a class="dropdown-item" href="/Book/uploaded_book">Books</a>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="/accounts/logout">Logout</a>
+</div>
+
+{% endblock %}
+
+{% block body %}
+<br><br><br>
+<div class="container my-5" style="border-left:solid 7px red;border-right:solid 7px red;border-radius:10%;"><br>
+
+    <h2>Add your unused Book to help others</h2><hr>
+
+  <form method="post">
+
+  <div class="form-group row">
+    <label for="bname" class="col-sm-2 col-form-label">Book Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="bname" placeholder="Book Name" name="bname" required>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="bsemester" class="col-sm-2 col-form-label">Semester</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="bsemester" placeholder="Semester" name="bsemester" required>
+    </div>
+    {% if flag_semester %}
+    <li style="color:red;"> {{msg|lower}}</li>
+    {% endif %}
+  </div>
+
+  <div class="form-group row">
+    <label for="bauthor" class="col-sm-2 col-form-label">Book Author</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="bauthor" placeholder="Book Author" name="bauthor" required>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="bbranch" class="col-sm-2 col-form-label">Branch</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="bbranch" placeholder="Branch" name="bbranch" required>
+    </div>
+    {% if flag_branch %}
+    <li style="color:red;"> {{msg|lower}}</li>
+    {% endif %}
+  </div>
+
+    {% csrf_token %}
+    <center><button type="submit" class="btn btn-success">Add Book</button></center>
+
+
+</form>
+
+
+
+{% endblock %}

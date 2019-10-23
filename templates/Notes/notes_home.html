@@ -1,0 +1,20 @@
+{% extends 'Book/base.html' %}
+
+{% block body %}
+<br><br><br><br>
+<div class="container jumbotron my-4"><br><br>
+  <h1>upload your notes </h1>
+  <form class="" method="post">
+    {% csrf_token %}
+
+    <div class="custom-file">
+        <input type="file" class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">Choose file</label>
+    </div><br><br><br>
+    <button type="submit" class="btn btn-outline-success">Upload</button>
+
+  </form>
+
+</div>
+
+{% endblock %}
